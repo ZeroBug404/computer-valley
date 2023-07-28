@@ -1,9 +1,12 @@
 import RootLayout from "@/components/Layouts/RootLayout";
+import BannerSlider from "@/components/Ui/BannerSlider";
+import FeaturedProducts from "@/components/Ui/FeaturedProducts";
 
 const Home = () => {
   return (
     <div>
-      <h1>Home page</h1>
+      <BannerSlider />
+      <FeaturedProducts />
     </div>
   );
 };

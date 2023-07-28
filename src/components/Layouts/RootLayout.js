@@ -22,7 +22,13 @@ const RootLayout = ({ children }) => {
     <Layout>
       <Navbar style={headerStyle}></Navbar>
       <Content style={contentStyle}>{children}</Content>
-      <Footer style={footerStyle}>Footer</Footer>
+      <Footer
+        style={{
+          textAlign: "center",
+        }}
+      >
+        Computer Valley ©2023 Created by ZeroBug_404
+      </Footer>
     </Layout>
   );
 };

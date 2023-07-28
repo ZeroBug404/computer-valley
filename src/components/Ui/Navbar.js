@@ -8,13 +8,13 @@ const Navbar = () => {
     {
       key: "1",
       label: (
-        <a
+        <Link
           target="_blank"
           rel="noopener noreferrer"
-          href="https://www.antgroup.com"
+          href="/mainParts/cpu"
         >
           CPU / Processor
-        </a>
+        </Link>
       ),
     },
     {
@@ -117,13 +117,13 @@ const Navbar = () => {
           >
             Home
           </Link>
-          <Link
+          {/* <Link
             href={"/"}
             className=""
             style={{ fontSize: "20px", fontWeight: "500" }}
           >
             Service
-          </Link>
+          </Link> */}
           <Dropdown menu={{ items }} placement="bottomLeft" arrow style={{}}>
             <Button size="large" style={{ fontWeight: "500" }}>
               Categories
