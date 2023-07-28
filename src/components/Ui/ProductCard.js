@@ -36,7 +36,7 @@ const ProductCard = ({ product }) => {
             margin: "0px",
           }}
         >
-          {product?.productName.length > 25
+          {product?.productName?.length > 25
             ? product?.productName.slice(0, 20) + ".."
             : product?.productName}
         </p>
@@ -95,7 +95,7 @@ const ProductCard = ({ product }) => {
 
       <Rate
         disabled
-        defaultValue={product?.rating}
+        defaultValue={product?.average_rating}
         style={{ fontSize: "16px" }}
       />
 
