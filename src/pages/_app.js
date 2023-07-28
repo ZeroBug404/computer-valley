@@ -1,5 +1,5 @@
-import '@/styles/globals.css'
+export default function MyApp({ Component, pageProps }) {
+  const getLayout = Component.getLayout || ((page) => page);
 
-export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return getLayout(<Component {...pageProps} />);
 }

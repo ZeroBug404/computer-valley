@@ -1,4 +1,4 @@
-import React from 'react';
+import RootLayout from "@/components/Layouts/RootLayout";
 
 const Home = () => {
   return (
@@ -9,3 +9,7 @@ const Home = () => {
 };
 
 export default Home;
+
+Home.getLayout = function getLayout(page) {
+  return <RootLayout>{page}</RootLayout>;
+};
