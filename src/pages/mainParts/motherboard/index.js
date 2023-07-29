@@ -6,10 +6,7 @@ import { Col, Row } from "antd";
 const Motherboard = () => {
   const { data, isLoading, isError, error } = useGetProductsQuery();
 
-  console.log(data.data);
-
   const motherboard = data?.data?.filter(product => product.category === 'Motherboard')
-  console.log(motherboard);
 
   return (
     <div style={{ padding: 16 }}>

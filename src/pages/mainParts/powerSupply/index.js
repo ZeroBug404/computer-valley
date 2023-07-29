@@ -5,10 +5,8 @@ import { Col, Row } from "antd";
 
 const PowerSupply = () => {
   const { data, isLoading, isError, error } = useGetProductsQuery();
-  console.log(data.data);
 
   const powerSupply = data?.data?.filter(product => product.category === 'Power Supply Unit')
-  console.log(powerSupply);
 
   return (
     <div style={{ padding: 16 }}>

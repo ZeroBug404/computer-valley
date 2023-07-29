@@ -82,7 +82,7 @@ const ProductDetail = ({ product }) => {
                 Product Features:
               </h2>
               <ul style={{ lineHeight: "25px", fontSize: "16px" }}>
-                {Object.entries(product.features).map(([key, value]) => (
+                {Object?.entries(product?.key_features)?.map(([key, value]) => (
                   <li key={key} style={{ listStyle: "none" }}>
                     <strong style={{ color: "", fontWeight: "500" }}>
                       {key}:
@@ -111,7 +111,7 @@ const ProductDetail = ({ product }) => {
                   }}
                 >
                   <Avatar icon={<UserOutlined />} />
-                  <p style={{lineHeight: "20px"}}>{review}</p>
+                  <p style={{ lineHeight: "20px" }}>{review.comment}</p>
                 </p>
               ))}
             </div>
@@ -130,13 +130,15 @@ ProductDetail.getLayout = function getLayout(page) {
 
 export const getStaticPaths = async () => {
   const res = await fetch(`http://localhost:5000/products`);
-  const products = await res.json();
+  const data = await res.json();
+  const porducts = await data.data;
+  console.log(porducts);
 
-  const paths = products?.data?.map((product) => ({
+  const paths = porducts.map((product) => ({
     params: { productId: product._id },
   }));
   return {
-    paths,
+    paths: paths || [],
     fallback: false,
   };
 };
@@ -144,7 +146,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
   const { params } = context;
 
-  const res = await fetch(`http://localhost:5000/product/${params.productId}`);
+  const res = await fetch(`http://localhost:5000/products/${params.productId}`);
   const data = await res.json();
 
   return {

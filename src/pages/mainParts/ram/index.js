@@ -7,7 +7,6 @@ const RAM = () => {
   const { data, isLoading, isError, error } = useGetProductsQuery();
 
   const ram = data?.data?.filter((product) => product.category === "RAM");
-  console.log(ram);
 
   return (
     <div style={{ padding: 16 }}>

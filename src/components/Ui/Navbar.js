@@ -109,9 +109,11 @@ const Navbar = () => {
               alignItems: "center",
             }}
           >
-            <Button style={{ fontWeight: "500" }} size="large" type="primary">
-              Build PC
-            </Button>
+            <Link href={"/pcBuilder"}>
+              <Button style={{ fontWeight: "500" }} size="large" type="primary">
+                Build PC
+              </Button>
+            </Link>
           </div>
         </div>
       </Menu>

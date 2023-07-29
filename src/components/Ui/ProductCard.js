@@ -1,22 +1,18 @@
 /* eslint-disable @next/next/no-img-element */
-import product1 from "../../assets/cpu/1.jpg";
-import { ArrowRightOutlined } from "@ant-design/icons";
-import { Card, Rate } from "antd";
-import Image from "next/image";
+import { setAddedToBuild } from "@/redux/features/pcBuild/pcBuildSlice";
+import { Button, Card, Rate } from "antd";
 import Link from "next/link";
+import { useDispatch } from "react-redux";
 
 const ProductCard = ({ product }) => {
-  const { Meta } = Card;
+  const dispatch = useDispatch();
+
+  const handleAddToBuild = () => {
+    dispatch(setAddedToBuild(product));
+  };
+
   return (
-    <Card
-      hoverable
-      cover={
-        <img
-        alt="example"
-        src={product?.image}
-      />
-      }
-    >
+    <Card hoverable cover={<img alt="example" src={product?.image} />}>
       <div
         style={{
           display: "flex",
@@ -96,23 +92,42 @@ const ProductCard = ({ product }) => {
         style={{ fontSize: "16px" }}
       />
 
-      <Link href={`/products/${product?._id}`}>
-        <p
+      <div style={{ display: "flex", gap: "1rem" }}>
+        <Link href={`/products/${product?._id}`}>
+          <Button
+            type="primary"
+            size={"large"}
+            style={{
+              fontSize: "15px",
+              marginTop: "20px",
+              color: "white",
+              width: "100%",
+              padding: "2px 5px ",
+              fontWeight: "300",
+              letterSpacing: "3px",
+              textAlign: "center",
+            }}
+          >
+            View Detail
+          </Button>
+        </Link>
+
+        <Button
+          size={"large"}
           style={{
             fontSize: "15px",
             marginTop: "20px",
-            backgroundColor: "black",
-            color: "white",
-            width: "100%",
+            width: "50%",
             padding: "2px 5px ",
             fontWeight: "300",
             letterSpacing: "3px",
             textAlign: "center",
           }}
+          onClick={handleAddToBuild}
         >
-          View Detail <ArrowRightOutlined />
-        </p>
-      </Link>
+          <Link href={"/pcBuilder"}>Add</Link>
+        </Button>
+      </div>
     </Card>
   );
 };

@@ -5,10 +5,11 @@ import { Col, Row } from "antd";
 
 const Storage = () => {
   const { data, isLoading, isError, error } = useGetProductsQuery();
-  console.log(data.data);
 
-  const Storage = data?.data?.filter(product => product.category === 'Storage Device')
-  console.log(Storage);
+  const Storage = data?.data?.filter(
+    (product) => product.category === "Storage Device"
+  );
+
   return (
     <div style={{ padding: 16 }}>
       <h2

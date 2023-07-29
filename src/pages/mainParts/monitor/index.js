@@ -5,10 +5,9 @@ import { Col, Row } from "antd";
 
 const Monitor = () => {
   const { data, isLoading, isError, error } = useGetProductsQuery();
-  console.log(data.data);
+
 
   const monitor = data?.data?.filter(product => product.category === 'Monitor')
-  console.log(monitor);
 
   return (
     <div style={{ padding: 16 }}>
