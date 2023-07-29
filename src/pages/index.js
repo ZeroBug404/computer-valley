@@ -1,5 +1,6 @@
 import RootLayout from "@/components/Layouts/RootLayout";
 import BannerSlider from "@/components/Ui/BannerSlider";
+import FeaturedCategories from "@/components/Ui/FeaturedCategories";
 import FeaturedProducts from "@/components/Ui/FeaturedProducts";
 
 const Home = () => {
@@ -7,6 +8,7 @@ const Home = () => {
     <div>
       <BannerSlider />
       <FeaturedProducts />
+      <FeaturedCategories />
     </div>
   );
 };

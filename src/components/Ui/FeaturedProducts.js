@@ -4,13 +4,28 @@ import ProductCard from "./ProductCard";
 
 const FeaturedProducts = () => {
   const { data, isLoading, isError, error } = useGetProductsQuery();
-  //   console.log(data.data);
-  return (
-    <div style={{ padding: 16 }}>
-      <h2>Featured Products</h2>
 
-      <Row gutter={[16, 16]} style={{ width: "95%", margin: "auto" }}>
-        {data?.data?.map((product) => (
+  const featured = data?.data?.filter((product) => product.featured === true);
+
+  return (
+    <div style={{ width: "95%", margin: "auto", marginTop: "5rem", }}>
+      <h2
+        style={{
+          textAlign: "left",
+          color: "gray",
+          fontSize: "30px",
+          lineHeight: "70px",
+          fontWeight: "600",
+          marginTop: "4.5rem",
+          marginBottom: "4rem",
+          width: "95%", margin: "auto"
+        }}
+      >
+        Featured Products
+      </h2>
+
+      <Row gutter={[16, 16]} style={{ width: "100%", margin: "auto" }}>
+        {featured?.map((product) => (
           <Col key={product._id} xs={24} sm={12} md={8} lg={6}>
             <div>
               <ProductCard product={product} />

@@ -1,6 +1,7 @@
 import { Carousel } from "antd";
 import Image from "next/image";
 import banner1 from "../../assets/banner1.jpg";
+import banner2 from "../../assets/banner2.jpg";
 
 const contentStyle = {
   height: "80vh",
@@ -20,10 +21,10 @@ const BannerSlider = () => (
   <Carousel autoplay>
     <div>
       {/* <h3 style={contentStyle}>1</h3> */}
-      <Image src={banner1} alt="Banner" style={imageStyle} />
+      <Image src={banner2} alt="Banner" style={imageStyle} />
     </div>
     <div>
-      <h3 style={contentStyle}>2</h3>
+      <Image src={banner1} alt="Banner" style={imageStyle} />
     </div>
   </Carousel>
 );

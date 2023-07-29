@@ -5,7 +5,10 @@ import { Col, Row } from "antd";
 
 const Storage = () => {
   const { data, isLoading, isError, error } = useGetProductsQuery();
+  console.log(data.data);
 
+  const Storage = data?.data?.filter(product => product.category === 'Storage Device')
+  console.log(Storage);
   return (
     <div style={{ padding: 16 }}>
       <h2
@@ -20,7 +23,7 @@ const Storage = () => {
       </h2>
 
       <Row gutter={[16, 16]} style={{ width: "95%", margin: "auto" }}>
-        {data?.data?.map((product) => (
+        {Storage?.map((product) => (
           <Col key={product._id} xs={24} sm={12} md={8} lg={6}>
             <div>
               <ProductCard product={product} />

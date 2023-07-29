@@ -1,4 +1,5 @@
-import product1 from "@/assets/product1.jpg";
+/* eslint-disable @next/next/no-img-element */
+import product1 from "../../assets/cpu/1.jpg";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import { Card, Rate } from "antd";
 import Image from "next/image";
@@ -10,14 +11,10 @@ const ProductCard = ({ product }) => {
     <Card
       hoverable
       cover={
-        <Image
-          style={{ padding: "0rem 2rem" }}
-          src={product1}
-          width={500}
-          height={200}
-          responsive
-          alt="news image"
-        />
+        <img
+        alt="example"
+        src={product?.image}
+      />
       }
     >
       <div
@@ -36,8 +33,8 @@ const ProductCard = ({ product }) => {
             margin: "0px",
           }}
         >
-          {product?.productName?.length > 25
-            ? product?.productName.slice(0, 20) + ".."
+          {product?.productName?.length > 15
+            ? product?.productName.slice(0, 14) + ".."
             : product?.productName}
         </p>
         <p
