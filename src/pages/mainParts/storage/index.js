@@ -3,12 +3,21 @@ import ProductCard from "@/components/Ui/ProductCard";
 import { useGetProductsQuery } from "@/redux/api/api";
 import { Col, Row } from "antd";
 
-const CPU = () => {
+const Storage = () => {
   const { data, isLoading, isError, error } = useGetProductsQuery();
 
   return (
     <div style={{ padding: 16 }}>
-      <h2 style={{margin: "0px", lineHeight: "100px", fontSize: "35px", fontWeight: "600"}}>CPU</h2>
+      <h2
+        style={{
+          margin: "0px",
+          lineHeight: "100px",
+          fontSize: "35px",
+          fontWeight: "600",
+        }}
+      >
+        Storage
+      </h2>
 
       <Row gutter={[16, 16]} style={{ width: "95%", margin: "auto" }}>
         {data?.data?.map((product) => (
@@ -23,8 +32,8 @@ const CPU = () => {
   );
 };
 
-export default CPU;
+export default Storage;
 
-CPU.getLayout = function getLayout(page) {
+Storage.getLayout = function getLayout(page) {
   return <RootLayout>{page}</RootLayout>;
 };

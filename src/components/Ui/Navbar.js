@@ -8,11 +8,7 @@ const Navbar = () => {
     {
       key: "1",
       label: (
-        <Link
-          target="_blank"
-          rel="noopener noreferrer"
-          href="/mainParts/cpu"
-        >
+        <Link rel="noopener noreferrer" href="/mainParts/cpu">
           CPU / Processor
         </Link>
       ),
@@ -20,73 +16,49 @@ const Navbar = () => {
     {
       key: "2",
       label: (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.aliyun.com"
-        >
+        <Link rel="noopener noreferrer" href="/mainParts/motherboard">
           Motherboard
-        </a>
+        </Link>
       ),
     },
     {
       key: "3",
       label: (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.luohanacademy.com"
-        >
+        <Link rel="noopener noreferrer" href="/mainParts/ram">
           RAM
-        </a>
+        </Link>
       ),
     },
     {
       key: "3",
       label: (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.luohanacademy.com"
-        >
+        <Link rel="noopener noreferrer" href="/mainParts/powerSupply">
           Power Supply Unit
-        </a>
+        </Link>
       ),
     },
     {
       key: "4",
       label: (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.luohanacademy.com"
-        >
+        <Link rel="noopener noreferrer" href="/mainParts/storage">
           Storage Device
-        </a>
+        </Link>
       ),
     },
     {
       key: "5",
       label: (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.luohanacademy.com"
-        >
+        <Link rel="noopener noreferrer" href="/mainParts/monitor">
           Monitor
-        </a>
+        </Link>
       ),
     },
     {
       key: "6",
       label: (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.luohanacademy.com"
-        >
+        <Link rel="noopener noreferrer" href="/mainParts/others">
           Others
-        </a>
+        </Link>
       ),
     },
   ];
