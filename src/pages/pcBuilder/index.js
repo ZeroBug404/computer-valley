@@ -305,8 +305,7 @@ const PcBuilder = () => {
       </div>
       {showAlert ? (
       <Alert
-        message="Success!"
-        description="Your action was successful."
+        message="Success! Build Completed!"
         type="success"
         showIcon
         closable
