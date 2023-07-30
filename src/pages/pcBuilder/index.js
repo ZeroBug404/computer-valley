@@ -1,7 +1,7 @@
 import RootLayout from "@/components/Layouts/RootLayout";
 import { Button, Space, Table } from "antd";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   BsCpu,
   BsDiagram3,
@@ -31,9 +31,11 @@ const PcBuilder = () => {
   );
   const ram = addedToBuild.filter((data) => data.category === "RAM");
 
-  if (addedToBuild.length > 4) {
-    setComplete(true);
-  }
+  useEffect(() => {
+    if (addedToBuild.length > 5) {
+      setComplete(true);
+    }
+  }, [addedToBuild]);
 
   const columns = [
     {

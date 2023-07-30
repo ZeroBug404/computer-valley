@@ -1,9 +1,11 @@
 import { Button, Dropdown, Layout, Menu } from "antd";
 import Link from "next/link";
+import { useSession, signOut } from "next-auth/react";
 
 const { Header } = Layout;
 
 const Navbar = () => {
+  const { data: session } = useSession();
   const items = [
     {
       key: "1",
@@ -77,11 +79,16 @@ const Navbar = () => {
         <div
           style={{
             display: "flex",
-            gap: "2rem",
+            gap: "1rem",
             justifyContent: "center",
             alignItems: "center",
           }}
         >
+          <Dropdown menu={{ items }} placement="bottomLeft" arrow style={{}}>
+            <Button size="large" style={{ fontWeight: "500" }}>
+              Categories
+            </Button>
+          </Dropdown>
           <Link
             href={"/"}
             className=""
@@ -89,18 +96,7 @@ const Navbar = () => {
           >
             Home
           </Link>
-          {/* <Link
-            href={"/"}
-            className=""
-            style={{ fontSize: "20px", fontWeight: "500" }}
-          >
-            Service
-          </Link> */}
-          <Dropdown menu={{ items }} placement="bottomLeft" arrow style={{}}>
-            <Button size="large" style={{ fontWeight: "500" }}>
-              Categories
-            </Button>
-          </Dropdown>
+
           <div
             style={{
               width: "100%",
@@ -114,6 +110,37 @@ const Navbar = () => {
                 Build PC
               </Button>
             </Link>
+          </div>
+          <div
+            style={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "end",
+              alignItems: "center",
+            }}
+          >
+            {session?.user ? (
+                <Button
+                  danger
+                  style={{ fontWeight: "500" }}
+                  size="large"
+                  type="primary"
+                  onClick={() => signOut()}
+                >
+                  Logout
+                </Button>
+            ) : (
+              <Link href={"/login"}>
+                <Button
+                  danger
+                  style={{ fontWeight: "500" }}
+                  size="large"
+                  type="primary"
+                >
+                  Login
+                </Button>
+              </Link>
+            )}
           </div>
         </div>
       </Menu>
