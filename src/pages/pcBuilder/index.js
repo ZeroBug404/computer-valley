@@ -31,7 +31,10 @@ const PcBuilder = () => {
   );
   const ram = addedToBuild.filter((data) => data.category === "RAM");
 
-  
+  if (addedToBuild.length > 4) {
+    setComplete(true);
+  }
+
   const columns = [
     {
       title: "Category",
