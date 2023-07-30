@@ -1,5 +1,5 @@
 import RootLayout from "@/components/Layouts/RootLayout";
-import { Button, Space, Table } from "antd";
+import { Alert, Button, Space, Table } from "antd";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import {
@@ -14,6 +14,16 @@ import { MdStorage } from "react-icons/md";
 import { useSelector } from "react-redux";
 
 const PcBuilder = () => {
+  const [visible, setVisible] = useState(showAlert);
+  const [showAlert, setShowAlert] = useState(false);
+
+  const handleButtonClick = () => {
+    setShowAlert(true);
+  };
+
+  const handleAlertClose = () => {
+    setVisible(false);
+  };
   const [complete, setComplete] = useState(false);
 
   const { addedToBuild } = useSelector((state) => state.product);
@@ -277,17 +287,33 @@ const PcBuilder = () => {
         >
           <p style={{ marginBottom: "25px" }}>Select Components</p>
           {complete === true ? (
-            <Button size="large" danger style={{ marginBottom: "0px" }}>
-              Complete
+            <Button
+              size="large"
+              danger
+              style={{ marginBottom: "0px" }}
+              onClick={handleButtonClick}
+            >
+              Complete Build
             </Button>
           ) : (
             <Button size="large" danger disabled>
-              Complete
+              Complete Build
             </Button>
           )}
         </div>
         <Table columns={columns} dataSource={data} />
       </div>
+      {visible ? (
+      <Alert
+        message="Success!"
+        description="Your action was successful."
+        type="success"
+        showIcon
+        closable
+        onClose={handleAlertClose}
+        style={{ position: "fixed", top: 24, right: 24, zIndex: 9999 }}
+      />
+      ) : null}
     </div>
   );
 };
