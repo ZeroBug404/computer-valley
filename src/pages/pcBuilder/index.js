@@ -14,8 +14,8 @@ import { MdStorage } from "react-icons/md";
 import { useSelector } from "react-redux";
 
 const PcBuilder = () => {
-  const [visible, setVisible] = useState(showAlert);
   const [showAlert, setShowAlert] = useState(false);
+  const [visible, setVisible] = useState(showAlert);
 
   const handleButtonClick = () => {
     setShowAlert(true);
