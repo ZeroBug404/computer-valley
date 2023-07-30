@@ -15,14 +15,14 @@ import { useSelector } from "react-redux";
 
 const PcBuilder = () => {
   const [showAlert, setShowAlert] = useState(false);
-  const [visible, setVisible] = useState(showAlert);
+  const [visible, setVisible] = useState(false);
 
   const handleButtonClick = () => {
     setShowAlert(true);
   };
 
   const handleAlertClose = () => {
-    setVisible(false);
+    setShowAlert(false);
   };
   const [complete, setComplete] = useState(false);
 
@@ -303,7 +303,7 @@ const PcBuilder = () => {
         </div>
         <Table columns={columns} dataSource={data} />
       </div>
-      {visible ? (
+      {showAlert ? (
       <Alert
         message="Success!"
         description="Your action was successful."
