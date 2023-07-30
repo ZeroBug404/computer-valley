@@ -12,5 +12,4 @@ export const authOptions = {
     signIn: "/login",
   },
 };
-
 export default NextAuth(authOptions);
